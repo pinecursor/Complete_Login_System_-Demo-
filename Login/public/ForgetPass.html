@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title> My Form </title>
+	<style>
+		#mylink {
+			font-size: 25px;
+		}
+	</style>
+	<script src="app.js">
+	</script>
+	<script type="text/javascript">
+		function sub() {
+			document.getElementById('jsform').submit();
+			const parent = document.getElementsByTagName("body")[0];
+			const child = document.getElementById('jsform');
+			const para = document.createElement("p");
+			var form = new FormData(document.getElementById("jsform"));
+			var inputValue = form.get("emailot");
+			para.innerHTML = inputValue;
+			parent.replaceChild(para,child);
+		}
+	</script>
+	<style>
+		.formbod{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			background-image: url("../pics/Forgetpassbac.jpg");
+		}
+	</style>
+</head>
+
+<body align='center' onload="">
+	<header>
+		<h1>Forget Password</h1>
+	</header>
+<div class="formbod">
+	<form action="/emailfor" id="jsform" method="POST">
+		<fieldset>
+
+			<br><br>
+			<label>Enter the Email address of your Account</label>
+			<br><br>
+			<input type="email" id="emailot" name="emailot" required>
+			<br><br>
+
+			<button type="reset">Reset</button>
+			<button type="button" onclick="sub()">Submit</button>
+	</form>
+
+	<form action="/otp" method="POST">
+
+			<br><br>
+
+			<label>Otp has been sent to your Account</label>
+			<br><br>
+			<input type="text" id="otp" name="otp" required>
+			<br><br>
+
+			<button type="reset">Reset</button>
+			<button type="submit">Submit</button>
+		</fieldset>
+	</form>
+</div>
+</body>
+
+</html>

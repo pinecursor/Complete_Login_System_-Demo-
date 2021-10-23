@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title> My Form </title>
+	<style>
+		#mylink{
+			font-size: 25px;
+		}
+	</style>
+    <script src="app.js">
+    </script>    
+</head>
+<body align='center' onload="">
+        <header>
+		<h1>Forget Password</h1>
+	</header>
+
+	<form action="/pwdcng" method="POST">
+		<fieldset>
+				
+			<br><br>
+
+			<label>password</label>
+			<input type="password" id = "password" name="password" required>
+			<br><br>
+
+			<button type ="reset">Reset</button>
+			<button type ="submit">Submit</button>
+		</fieldset>
+        </form>
+</body>
+</html>
