@@ -1,0 +1,75 @@
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/Records');
+
+const Dataschema ={
+    id: Number,
+    username:String,
+	email: String,
+	password: String
+};
+
+const data = mongoose.model('data', Dataschema);
+
+ let bruh= new data({
+           id: Date.now(),
+           username: req.body.username,
+           email: req.body.email,
+           password: req.body.password
+       });
+       bruh.save();
+
+       console.log()
+       res.redirect("/");
+
+
+
+       Old register function
+
+
+       pp.post('/register', async (req, res) => {
+    try{
+        let foundUser = data.findOne(req.body.email === data.email);
+        console.log(foundUser);
+        if (!foundUser) {
+    
+            let hashPassword = await bcrypt.hash(req.body.password, 10);
+    
+            let bruh= new data({
+                id: Date.now(),
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password
+            });
+            bruh.save();
+            //console.log('User list', users);
+    
+            res.send("<div align ='center'><h2>Registration successful</h2></div><br><br><div align='center'><a href='./login.html'>login</a></div><br><br><div align='center'><a href='./registration.html'>Register another user</a></div>");
+        } else {
+            res.send("<div align ='center'><h2>Email already used</h2></div><br><br><div align='center'><a href='./registration.html'>Register again</a></div>");
+        }
+    } catch{
+        res.send("Internal server error");
+    }
+});
+
+function forgetpass(){
+function generateOTP() {
+          
+    // Declare a digits variable 
+    // which stores all digits
+    var digits = '0123456789';
+    let OTP = '';
+    for (let i = 0; i < 4; i++ ) {
+        OTP += digits[Math.floor(Math.random() * 10)];
+    }
+    return OTP;
+}
+
+otp= generateOTP();
+var mailOptions={
+    from: 'verifiermail2@gmail.com',
+    to:''
+}
+
+
+}
